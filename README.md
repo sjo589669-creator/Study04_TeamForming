@@ -5,7 +5,7 @@
 > ✏️ 표시가 있는 곳은 배포·시험한 뒤 직접 채워야 하는 칸입니다. 5~7항은 실제로 겪은 일과 그 화면·커밋만 적어야 합니다(꾸며 내면 시나리오 밖 점수 0점).
 
 ## 1. 배포 주소
-✏️ https://(배포 뒤 주소).streamlit.app
+https://study04-teamforming.streamlit.app
 
 ## 2. PRD와 구현 계획의 위치
 - `docs/PRD.md`
