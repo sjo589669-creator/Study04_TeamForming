@@ -1,0 +1,20 @@
+# Supabase 무료 프로젝트가 일시정지되지 않도록 매일 DB에 질의를 보냄(공고 3장 어려운 해결)
+# 저장소 Settings > Secrets and variables > Actions 에 DATABASE_URL 을 넣어야 동작함
+name: supabase-keepalive
+on:
+  schedule:
+    - cron: "17 0 * * *"   # 매일 09:17 (한국 시각) = 00:17 UTC
+  workflow_dispatch: {}     # Actions 탭에서 직접 실행해 확인할 수 있음
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query Supabase
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          sudo apt-get install -y -qq postgresql-client > /dev/null
+          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -q -c \
+            "insert into tf_settings(key, value) values ('keepalive', now()::text)
+             on conflict (key) do update set value = excluded.value;" \
+            -c "select key, value from tf_settings where key = 'keepalive';"
