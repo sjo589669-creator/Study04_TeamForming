@@ -22,9 +22,9 @@ from .rules import Student
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 MODEL_TIMEOUT_SEC = 120
 DEFAULT_MODELS = (
-    "nvidia/nemotron-3-ultra-550b-a55b:free",
-    "google/gemma-4-31b-it:free",
-    "poolside/laguna-s-2.1:free",
+    "nvidia/nemotron-3.5-lightning:free",
+    "thinkingmachines/inkling:free",
+    "openrouter/free",  # 그때 쓸 수 있는 무료 모델로 오픈라우터가 보냄(모델이 사라져도 이름이 남음)
 )
 
 
