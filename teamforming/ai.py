@@ -23,7 +23,7 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 MODEL_TIMEOUT_SEC = 120
 DEFAULT_MODELS = (
     "nvidia/nemotron-3.5-lightning:free",
-    "thinkingmachines/inkling:free",
+    "google/gemma-4-26b-a4b-it:free",
     "openrouter/free",  # 그때 쓸 수 있는 무료 모델로 오픈라우터가 보냄(모델이 사라져도 이름이 남음)
 )
 
